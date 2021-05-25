@@ -5,6 +5,8 @@ function App() {
     <div className="h-screen w-screen bg-white flex items-center justify-center">
       <div className="p-4 bg-black rounded-xl">
         <div className="grid grid-cols-4 gap-4">
+          <Button label="AC" extraLarge />
+          <Button label="/" withAccent />
           <Button label="7" />
           <Button label="8" />
           <Button label="9" />
