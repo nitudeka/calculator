@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "./components/Button";
 import { setData } from "./slice";
@@ -6,6 +6,27 @@ import { setData } from "./slice";
 function App() {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.data);
+  const buttons = useMemo(() => {
+    return [
+      { value: "clear", label: "AC", extraLarge: true },
+      { value: "/", label: "/", withAccent: true },
+      { value: "7", label: "7" },
+      { value: "8", label: "8" },
+      { value: "9", label: "9" },
+      { value: "*", label: "*", withAccent: true },
+      { value: "4", label: "4" },
+      { value: "5", label: "5" },
+      { value: "6", label: "6" },
+      { value: "-", label: "-", withAccent: true },
+      { value: "1", label: "1" },
+      { value: "2", label: "2" },
+      { value: "3", label: "3" },
+      { value: "+", label: "+", withAccent: true },
+      { value: "0", label: "0", large: true },
+      { value: ".", label: "." },
+      { value: "equal", label: "=", withAccent: true },
+    ];
+  }, []);
 
   const onClick = (value) => {
     switch (value) {
@@ -33,23 +54,9 @@ function App() {
           <p className="text-4xl">{data}</p>
         </div>
         <div className="grid grid-cols-4 gap-4">
-          <Button onClick={onClick} value="clear" label="AC" extraLarge />
-          <Button onClick={onClick} value="/" label="/" withAccent />
-          <Button onClick={onClick} value="7" label="7" />
-          <Button onClick={onClick} value="8" label="8" />
-          <Button onClick={onClick} value="9" label="9" />
-          <Button onClick={onClick} value="*" label="*" withAccent />
-          <Button onClick={onClick} value="4" label="4" />
-          <Button onClick={onClick} value="5" label="5" />
-          <Button onClick={onClick} value="6" label="6" />
-          <Button onClick={onClick} value="-" label="-" withAccent />
-          <Button onClick={onClick} value="1" label="1" />
-          <Button onClick={onClick} value="2" label="2" />
-          <Button onClick={onClick} value="3" label="3" />
-          <Button onClick={onClick} value="+" label="+" withAccent />
-          <Button onClick={onClick} value="0" large label="0" />
-          <Button onClick={onClick} value="." label="." />
-          <Button onClick={onClick} value="equal" label="=" withAccent />
+          {buttons.map((btn, i) => {
+            return <Button key={i} onClick={onClick} {...btn} />;
+          })}
         </div>
       </div>
     </div>
