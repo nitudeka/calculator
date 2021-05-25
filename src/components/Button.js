@@ -1,7 +1,8 @@
-const Button = ({ label, value, large }) => {
+const Button = ({ label, withAccent, large }) => {
   let className = [
-    `flex items-center justify-center h-14 rounded-full bg-gray-600`,
-    large ? "w-28" : "w-14",
+    `flex items-center cursor-pointer justify-center h-14 rounded-full`,
+    large ? "col-span-2" : "w-14",
+    withAccent ? "bg-yellow-400" : "bg-gray-600",
   ].join(" ");
 
   return (
