@@ -1,4 +1,4 @@
-const Button = ({ label, withAccent, large, extraLarge }) => {
+const Button = ({ label, value, onClick, withAccent, large, extraLarge }) => {
   let className = [
     `flex items-center hover:bg-opacity-100 cursor-pointer justify-center h-14 rounded-full`,
     large ? "col-span-2" : extraLarge ? "col-span-3" : "w-14",
@@ -6,7 +6,7 @@ const Button = ({ label, withAccent, large, extraLarge }) => {
   ].join(" ");
 
   return (
-    <div className={className}>
+    <div onClick={() => onClick(value)} className={className}>
       <span className="text-white font-semibold text-xl">{label}</span>
     </div>
   );
