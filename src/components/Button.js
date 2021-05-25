@@ -1,8 +1,8 @@
 const Button = ({ label, withAccent, large }) => {
   let className = [
-    `flex items-center cursor-pointer justify-center h-14 rounded-full`,
+    `flex items-center hover:bg-opacity-100 cursor-pointer justify-center h-14 rounded-full`,
     large ? "col-span-2" : "w-14",
-    withAccent ? "bg-yellow-400" : "bg-gray-600",
+    withAccent ? "bg-yellow-400" : "bg-gray-600 bg-opacity-60",
   ].join(" ");
 
   return (
