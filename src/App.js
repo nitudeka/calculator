@@ -21,9 +21,10 @@ function App() {
   };
 
   const onSubmit = useCallback(() => {
+    // eslint-disable-next-line
     const result = eval(data);
     dispatch(setData(result));
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <div className="h-screen w-screen bg-white flex items-center justify-center">
